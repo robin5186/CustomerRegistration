@@ -46,45 +46,13 @@ Add user</button>
 <input type="text" id="txt" placeholder="Enter UserCode" name="uscod">
 <input type="text" id="txt" placeholder="Enter User Address" name="adres">
 <input type="submit" id="btn1" value="Save">
+
 <span onclick="document.getElementById('modal-wrapper').style.display='none'" id="btn2">cancel</span>
 </div>
 </form>
 </div>
 </div>
 
-<table>
-<tr>
-<th>Username</th>
-<th>Usercode</th>
-<th>User Address</th>
-</tr>
-
-<?php
-	$host = "localhost";
-	$dbusername = "root";
-	$dbusercode = "";
-	$dbaddress = "";
-	$dbname = "youtube";
-	$conn = new mysqli ($host, $dbusername, $dbusercode, $dbname);
-			
-	if(mysqli_connect_error())
-	{
-		die('Connect Error ('.mysqli_connect_errno().')'.mysqli_connect_error());
-	}
-	else{
-	$sql = "SELECT username, usercode, address FROM user";
-	$result = $conn->query($sql);
-	if ($result->num_rows > 0) {
-		while($row = $result->fetch_assoc()) {
-			echo "<tr><td>" . $row["username"]. "</td><td>" . $row["usercode"] . "</td><td>" . $row["address"]. "</td></tr>";
-		}
-		echo "</table>";
-	} else { echo "0 results"; }
-	}
-	$conn->close();
-
-?>
-</table>
 
 
 <script>
